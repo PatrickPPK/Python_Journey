@@ -37,4 +37,12 @@ In other words, the names of positional-only parameters can be used in **kwds wi
 
 Question: Why can't we use '*' instead '/'.
 
-3.
+3. >>> def concat(separator='/',*args,**kwag):
+...     a = separator.join(args)
+...     a = a + separator.join(kwag.values())
+...     print(a)
+... 
+>>> concat('*',*lis,*dic)
+pratik*a*b*x*y
+
+Question: Why x and y instead of 1 and 2.
