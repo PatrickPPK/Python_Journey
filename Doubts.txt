@@ -46,3 +46,13 @@ Question: Why can't we use '*' instead '/'.
 pratik*a*b*x*y
 
 Question: Why x and y instead of 1 and 2.
+
+4. Question: What is the difference between str() and repr() function?
+
+5. 
+>>> table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+>>> print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; '
+...       'Dcab: {0[Dcab]:d}'.format(table))
+Jack: 4098; Sjoerd: 4127; Dcab: 8637678
+
+Question: Why can't we use non-zero instead of 0 (e.g {1[Jack]:d})
