@@ -16,6 +16,7 @@ len(string) -> gives length of string
 Case study:
 -----------
 Take the string from the user and reverse it with only one line of code:
+"https://gist.github.com/PatrickPPK/9d719f45d8cfc6a2b3c43558d3f20853"
 [one-liner to reverse the string](https://gist.github.com/PatrickPPK/9d719f45d8cfc6a2b3c43558d3f20853)
 
 Case study:
