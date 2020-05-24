@@ -1,8 +1,7 @@
-Lecture 1                                                 
-Date: 05/17/2020
+Lecture 1   Date: 05/17/2020
 ------------------------------------
 
-**pip -V**: Python's package-management syster
+**pip -V**: Python's package-management system
 
 **pvm**: bytecode -> machine code
 
