@@ -1,7 +1,6 @@
 Date: 05/17/2020
 ------------------------------------
-Batch: 18May_Python_Brijesh_Online
-------------------------------------
+
 **pip -V**: Python's package-management syster
 
 **pvm**: bytecode -> machine code
