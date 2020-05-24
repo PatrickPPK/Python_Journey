@@ -1,4 +1,5 @@
-Lecture 1                                                 Date: 05/17/2020
+Lecture 1                                                 
+Date: 05/17/2020
 ------------------------------------
 
 **pip -V**: Python's package-management syster
