@@ -188,3 +188,166 @@ print(f"The value of a principal amount '{P}' with rate of interest '{R}' after 
 ################################################################################################
 # Answer: PEP 8 defines set of rules to format Python code to maximize its readability
 
+################################################################################################
+# ----------------------------------------------------------------------------------------------
+# Assignment Level Advance
+# ----------------------------------------------------------------------------------------------
+################################################################################################
+
+################################################################################################
+# A1: Write a Python program to sort three integers without using conditional statements and
+#     loops.
+################################################################################################
+
+################################################################################################
+# A2: Write a Python program that accepts an integer (n) and computes the value of n+nn+nnn.
+################################################################################################
+n = input("Enter an integer: ")
+nnn = int(n + n + n)
+nn = int(n + n)
+n = int(n)
+value = n + nn + nnn
+print(f"{n} + {nn} + {nnn} = {value}")
+################################################################################################
+# A3: Write a Python program to sum of three given integers. However, if two values are equal
+#     sum will be zero.
+################################################################################################
+int_1 = int(input("Enter the integer 1: "))
+int_2 = int(input("Enter the integer 2: "))
+int_3 = int(input("Enter the integer 3: "))
+if (int_1 == int_2) or (int_1 == int_3) or (int_2 == int_3):
+    sum = 0
+else:
+    sum = int_1 + int_2 + int_3
+print("{0} + {1} + {2} = {3}".format(int_1, int_2, int_3, sum))
+################################################################################################
+# A4: Write a Python program that will return true if the two given integer values are equal or
+#     their sum or difference is 5.
+################################################################################################
+int_1 = int(input("Enter the integer 1: "))
+int_2 = int(input("Enter the integer 2: "))
+if (int_1 == int_2) or ((int_1 + int_2) == 5) or ((int_1 - int_2) == 5) or ((int_2 - int_1) == 5):
+    print("True")
+################################################################################################
+# A5: Write a python program to sum of the first n positive integers
+################################################################################################
+integer = int(input("Enter an integer: "))
+sum = 0
+for n in range(integer+1):
+    sum += n
+print("sum of the first %d positive integers is %d" %(integer, sum))
+
+################################################################################################
+# ----------------------------------------------------------------------------------------------
+# Topic: String manipulation
+# Accessing String,Basic Operation,String slice,Function and method
+# Assignment Level Basic
+# ----------------------------------------------------------------------------------------------
+################################################################################################
+
+################################################################################################
+# B1: Write a Python program to calculate the length of a string.
+################################################################################################
+string = input("Enter a string: ")
+print(f"Lengtg of the string '{string}' is {len(string)}")
+################################################################################################
+# B2: Write a Python program to count the number of characters (character frequency) in a string
+################################################################################################
+string = input("Enter a string: ")
+unique_characters = set()
+for c in string:
+    unique_characters.add(c)
+for n in unique_characters:
+    print(f"character frequency of '{n}' in '{string}' is: {string.count(n)}")
+################################################################################################
+# B3: What are negative indexes and why are they used?
+################################################################################################
+# Answer: In python, negative indexes are used to index any indexable data type from the end of
+#         collection. Negative indexes are believed to be more readable.
+################################################################################################
+# B4: Explain split(), sub(), subn() methods of “re” module in Python.
+################################################################################################
+
+################################################################################################
+# B5: How do you perform pattern matching in Python? Explain.
+################################################################################################
+
+################################################################################################
+# B6: Write a Python program to count occurrences of a substring in a string
+################################################################################################
+string = input("Enter a string: ")
+substring = input("Enter a substring: ")
+print(f"Occurrences of the '{substring}' in a string '{string}' is: {string.count(substring)}")
+################################################################################################
+# B7: Write a Python program to count the occurrences of each word in a given sentence
+################################################################################################
+string = input("Enter a string: ")
+unique_words = set(string.split(' '))
+for word in unique_words:
+    print(f"Occurrences of the '{word}' in a string '{string}' is: {string.count(word)}")
+
+################################################################################################
+# ----------------------------------------------------------------------------------------------
+# Assignment Level Intermediate
+# ----------------------------------------------------------------------------------------------
+################################################################################################
+
+################################################################################################
+# I1: Write a Python program to get a single string from two given strings, separated by a space
+#     and swap the first two characters of each string.
+################################################################################################
+string_1, string_2 = input("Enter two strings separated by comma(,): ").split(',')
+updated_string = string_2[:2] + string_1[2:] + ' ' + string_1[:2] + string_2[2:]
+print("A single string from two given string, after swapping the first two characters of each "
+      "string is : '%s'" %(updated_string))
+################################################################################################
+# I2: Write a Python program to add 'ing' at the end of a given string (length should be at
+#     least 3). If the given string already ends with 'ing' then add 'ly' instead If the string
+#     length of the given string is less than 3, leave it unchanged
+################################################################################################
+string = input("Enter a string: ")
+if len(string) < 3:
+    print("Length of the string is less than 3, hence not changing the string")
+    updated_string = string
+elif string[-3:] == 'ing':
+    print("String ends with 'ing', hence appending 'ly' at the end")
+    updated_string = string + 'ly'
+else:
+    print("Appending 'ing' at the end")
+    updated_string = string + 'ing'
+print(f"Updated string: '{updated_string}'")
+################################################################################################
+# I3: Write a Python program to find the first appearance of the substring 'not' and 'poor' from
+#     a given string, if 'not' follows the 'poor', replace the whole 'not'...'poor' substring
+#     with 'good'. Return the resulting string.
+################################################################################################
+string = input("Enter a string: ")
+index_of_not_word = string.find('not')
+index_of_poor_word = string.find('poor')
+if index_of_not_word < index_of_poor_word and index_of_not_word > 0 and index_of_poor_word > 0:
+    print("'not' word follows the 'poor' word in the string, hence replacing 'not'...'poor' "
+          "substring with 'good'")
+    updated_string = string[:index_of_not_word] + 'good' + string[(index_of_poor_word+4):]
+else:
+    updated_string = string
+print(f"Updated string: '{updated_string}'")
+################################################################################################
+# I4: Write a Python function that takes a list of words and returns the length of the longest
+#     one.
+################################################################################################
+words = input("Enter the list of words separated by comma(,): ").split(',')
+length_of_longest_word = 0
+for n in words:
+    if len(n) > length_of_longest_word:
+        length_of_longest_word = len(n)
+print(f"The length of the longest word is: {length_of_longest_word}")
+################################################################################################
+# I5: Write a Python function to reverses a string if it's length is a multiple of 4
+################################################################################################
+string = input("Enter a string: ")
+if ((len(string) % 4) == 0):
+    print("length of the string is multiple of 4, hence reversing the string")
+    updated_string = string[::-1]
+else:
+    updated_string = string
+print(f"Updated string: '{updated_string}'")
