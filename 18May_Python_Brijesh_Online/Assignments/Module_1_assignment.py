@@ -351,3 +351,42 @@ if ((len(string) % 4) == 0):
 else:
     updated_string = string
 print(f"Updated string: '{updated_string}'")
+
+################################################################################################
+# ----------------------------------------------------------------------------------------------
+# Assignment Level Advance
+# ----------------------------------------------------------------------------------------------
+################################################################################################
+
+################################################################################################
+# I1: Write a Python program to get a string made of the first 2 and the last 2 chars from a
+#     given a string. If the string length is less than 2, return instead of the empty string.
+#     Go to the editor
+#     Sample String : 'w3resource'
+#     Expected Result : 'w3ce'
+#     Sample String : 'w3'
+#     Expected Result : 'w3w3'
+#     Sample String : ' w'
+#     Expected Result : Empty String
+################################################################################################
+string = input("Enter a string: ")
+if len(string) < 2:
+    updated_string = ''
+else:
+    updated_string = string[:2] + string[-2:]
+print(f"Updated string: '{updated_string}'")
+################################################################################################
+# I2: Write a Python program to get a string from a given string where all occurrences of its
+#     first char have been changed to '$', except the first char itself
+################################################################################################
+string = input("Enter a string: ")
+first_char = string[0]
+updated_string = first_char + string[1:].replace(first_char, '$')
+print(f"Updated string: '{updated_string}'")
+################################################################################################
+# I3: Write a Python function to insert a string in the middle of a string.
+################################################################################################
+string_1 = input("Enter a string: ")
+string_2 = input(f"Enter a string to put in the middle of a string '{string_1}': ")
+updated_string = string_1[:(len(string_1)//2)] + string_2 + string_1[(len(string_1)//2):]
+print(f"Updated string: '{updated_string}'")
