@@ -25,7 +25,7 @@ print(sys.version)
 # B3: Is python the right choice for Web based Programming?
 ################################################################################################
 # Answer: Web frameworks like Django, Flash make python one of the best choice for web based
-# programming
+#         programming
 
 ################################################################################################
 # B4: Why was the language called as Python?
@@ -37,11 +37,12 @@ print(sys.version)
 ################################################################################################
 number = int(input("Enter an integer number: "))
 if number > 0:
-    print(f"{number} is position")
+    print(f"{number} is positive")
 elif number < 0:
     print("{0} is negative" .format(number))
 else:
     print("%d is zero" %(number))
+    
 ################################################################################################
 # B6: What is the language from which Python has got its features or derived its features?
 ################################################################################################
@@ -62,7 +63,7 @@ elif isinstance(variable, int) is True:
 #     the same?
 ################################################################################################
 # Answer : Python doesn't support switch or case statement. Python has if, elif, else
-#          constructs to perform the same operation
+#          constructs to perform the similar operation
 
 ################################################################################################
 # B9: How Python is interpreted?
@@ -79,11 +80,12 @@ def factorial(n):
         return 1
     else:
         return n * factorial(n-1)
-factorial(number)
+print(f"{number}! = {factorial(number)}")
+
 ################################################################################################
 # B11: Write a Python program to get the Fibonacci series of given range
 ################################################################################################
-number = int(input("Enter an integer number to find the factorial: "))
+number = int(input("Enter an integer number to find the Fibonacci series of the range within: "))
 def fibonacci(n):
     a = 0
     b = 1
@@ -91,6 +93,7 @@ def fibonacci(n):
         b, a = a+b, b
         print(a, end=' ')
 fibonacci(number)
+
 ################################################################################################
 # B12: How memory is managed in Python?
 ################################################################################################
@@ -129,6 +132,7 @@ b = temp
 a = 10
 b = 20
 a, b = b, a
+
 ################################################################################################
 # I2: Write a Python program to find whether a given number is even or odd, print out an
 #     appropriate message to the user.
@@ -138,22 +142,24 @@ if (number % 2) == 0:
     print(f"{number} is an even number")
 else:
     print(f"{number} is an odd number")
+    
 ################################################################################################
 # I3: Write a Python program that compute the area of following
 #     1) Triangle (accepts base and height)
 #     2) Circle (accept radius)
 ################################################################################################
 #1) Area of a triangle
-base = int(input("Enter the base dimension of a triangle: "))
-height = int(input("Enter the height dimension of a triangle: "))
+base = float(input("Enter the base dimension of a triangle: "))
+height = float(input("Enter the height dimension of a triangle: "))
 area = (base * height) / 2
-print(f"The area of a triangle with {base} and {height} dimensions is {area}")
+print(f"The area of a triangle with {base} and {height} dimensions is {area} square unit")
 
 #2) Area of a circle
 from math import pi
-radius = int(input("Enter the radius of a circle: "))
+radius = float(input("Enter the radius of a circle: "))
 area = pi * radius * radius
-print(f"The area of a circle with {radius} is {area}")
+print(f"The area of a circle with {radius} is {area} square unit")
+
 ################################################################################################
 # I4: Write a Python program to test whether a passed letter is a vowel or not
 ################################################################################################
@@ -163,17 +169,19 @@ if letter.casefold() in vowels:
     print(f"The alphabet letter '{letter}' is a vowel")
 else:
     print(f"The alphabet letter '{letter}' is not a vowel")
+    
 ################################################################################################
 # I5: Write a Python program to compute the value of a specified principal amount, rate of
 #     interest, and a number of years
 ################################################################################################
-P = int(input("Enter the principal amount: "))
-R = int(input("Enter the rate of interest: "))
-N = int(input("Enter the number of years: "))
+P = float(input("Enter the principal amount: "))
+R = float(input("Enter the rate of interest: "))
+N = float(input("Enter the number of years: "))
 interest_after_n_years = P * R * N / 100
 total_value_after_n_years = P + interest_after_n_years
 print(f"The value of a principal amount '{P}' with rate of interest '{R}' after '{N} years is "
       f"'{total_value_after_n_years}'")
+      
 ################################################################################################
 # I6: What are the tools that help to find bugs or perform static analysis?
 ################################################################################################
@@ -182,6 +190,8 @@ print(f"The value of a principal amount '{P}' with rate of interest '{R}' after 
 ################################################################################################
 # I7: What are Python decorators?
 ################################################################################################
+# Answer: A decorator is a function that takes another function and extends the behavior of the
+#         latter function without explicitly modifying it.
 
 ################################################################################################
 # I8: What is PEP 8?
@@ -198,6 +208,13 @@ print(f"The value of a principal amount '{P}' with rate of interest '{R}' after 
 # A1: Write a Python program to sort three integers without using conditional statements and
 #     loops.
 ################################################################################################
+int_1 = int(input("Enter the integer 1: "))
+int_2 = int(input("Enter the integer 2: "))
+int_3 = int(input("Enter the integer 3: "))
+max_int = max(int_1, int_2, int_3)
+min_int = min(int_1, int_2, int_3)
+middle_int = sum((int_1, int_2, int_3)) - max_int - min_int
+print("Sorted integers: {}, {}, {}".format(min_int, middle_int, max_int))
 
 ################################################################################################
 # A2: Write a Python program that accepts an integer (n) and computes the value of n+nn+nnn.
@@ -208,6 +225,7 @@ nn = int(n + n)
 n = int(n)
 value = n + nn + nnn
 print(f"{n} + {nn} + {nnn} = {value}")
+
 ################################################################################################
 # A3: Write a Python program to sum of three given integers. However, if two values are equal
 #     sum will be zero.
@@ -216,10 +234,13 @@ int_1 = int(input("Enter the integer 1: "))
 int_2 = int(input("Enter the integer 2: "))
 int_3 = int(input("Enter the integer 3: "))
 if (int_1 == int_2) or (int_1 == int_3) or (int_2 == int_3):
+    print(f"There are at least two values equal in ({int_1},{int_2},{int_3}). Hence setting sum "
+          f"to 0")
     sum = 0
 else:
     sum = int_1 + int_2 + int_3
 print("{0} + {1} + {2} = {3}".format(int_1, int_2, int_3, sum))
+
 ################################################################################################
 # A4: Write a Python program that will return true if the two given integer values are equal or
 #     their sum or difference is 5.
@@ -228,6 +249,7 @@ int_1 = int(input("Enter the integer 1: "))
 int_2 = int(input("Enter the integer 2: "))
 if (int_1 == int_2) or ((int_1 + int_2) == 5) or ((int_1 - int_2) == 5) or ((int_2 - int_1) == 5):
     print("True")
+    
 ################################################################################################
 # A5: Write a python program to sum of the first n positive integers
 ################################################################################################
@@ -249,7 +271,8 @@ print("sum of the first %d positive integers is %d" %(integer, sum))
 # B1: Write a Python program to calculate the length of a string.
 ################################################################################################
 string = input("Enter a string: ")
-print(f"Lengtg of the string '{string}' is {len(string)}")
+print(f"Length of the string '{string}' is {len(string)}")
+
 ################################################################################################
 # B2: Write a Python program to count the number of characters (character frequency) in a string
 ################################################################################################
@@ -259,18 +282,23 @@ for c in string:
     unique_characters.add(c)
 for n in unique_characters:
     print(f"character frequency of '{n}' in '{string}' is: {string.count(n)}")
+    
 ################################################################################################
 # B3: What are negative indexes and why are they used?
 ################################################################################################
 # Answer: In python, negative indexes are used to index any indexable data type from the end of
 #         collection. Negative indexes are believed to be more readable.
+
 ################################################################################################
 # B4: Explain split(), sub(), subn() methods of “re” module in Python.
 ################################################################################################
+# Answer: Not covered in module-1
 
 ################################################################################################
 # B5: How do you perform pattern matching in Python? Explain.
 ################################################################################################
+# Answer: In Python, pattern matching or string parsing is handled by regular expressions. The
+#         "re" module comes with python installation provides regular expression supports.
 
 ################################################################################################
 # B6: Write a Python program to count occurrences of a substring in a string
@@ -278,6 +306,7 @@ for n in unique_characters:
 string = input("Enter a string: ")
 substring = input("Enter a substring: ")
 print(f"Occurrences of the '{substring}' in a string '{string}' is: {string.count(substring)}")
+
 ################################################################################################
 # B7: Write a Python program to count the occurrences of each word in a given sentence
 ################################################################################################
@@ -300,6 +329,7 @@ string_1, string_2 = input("Enter two strings separated by comma(,): ").split(',
 updated_string = string_2[:2] + string_1[2:] + ' ' + string_1[:2] + string_2[2:]
 print("A single string from two given string, after swapping the first two characters of each "
       "string is : '%s'" %(updated_string))
+      
 ################################################################################################
 # I2: Write a Python program to add 'ing' at the end of a given string (length should be at
 #     least 3). If the given string already ends with 'ing' then add 'ly' instead If the string
@@ -316,6 +346,7 @@ else:
     print("Appending 'ing' at the end")
     updated_string = string + 'ing'
 print(f"Updated string: '{updated_string}'")
+
 ################################################################################################
 # I3: Write a Python program to find the first appearance of the substring 'not' and 'poor' from
 #     a given string, if 'not' follows the 'poor', replace the whole 'not'...'poor' substring
@@ -331,6 +362,7 @@ if index_of_not_word < index_of_poor_word and index_of_not_word > 0 and index_of
 else:
     updated_string = string
 print(f"Updated string: '{updated_string}'")
+
 ################################################################################################
 # I4: Write a Python function that takes a list of words and returns the length of the longest
 #     one.
@@ -341,6 +373,7 @@ for n in words:
     if len(n) > length_of_longest_word:
         length_of_longest_word = len(n)
 print(f"The length of the longest word is: {length_of_longest_word}")
+
 ################################################################################################
 # I5: Write a Python function to reverses a string if it's length is a multiple of 4
 ################################################################################################
@@ -375,6 +408,7 @@ if len(string) < 2:
 else:
     updated_string = string[:2] + string[-2:]
 print(f"Updated string: '{updated_string}'")
+
 ################################################################################################
 # I2: Write a Python program to get a string from a given string where all occurrences of its
 #     first char have been changed to '$', except the first char itself
@@ -383,6 +417,7 @@ string = input("Enter a string: ")
 first_char = string[0]
 updated_string = first_char + string[1:].replace(first_char, '$')
 print(f"Updated string: '{updated_string}'")
+
 ################################################################################################
 # I3: Write a Python function to insert a string in the middle of a string.
 ################################################################################################
