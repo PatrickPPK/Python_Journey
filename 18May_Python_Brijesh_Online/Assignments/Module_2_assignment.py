@@ -13,6 +13,7 @@
 # Answer: List is a collection of same or different data objections. Lists are ordered and
 #         mutable in nature. Lists can have duplicate values.
 #         list provides the reverse() method to reverse the contents of the itself.
+
 ################################################################################################
 # B2: How will you remove last object from a list?
 ################################################################################################
@@ -38,7 +39,15 @@ print(f"Largest number in the list {lst} is: {max(lst)}")
 ################################################################################################
 # B6: How will you compare two lists?
 ################################################################################################
+l1 = ['a','b','c','d','e']
+l2 = ['e','d','c','b','a']
+l1_sorted = sorted(l1)
+l2_sorted = sorted(l2)
 
+if l1_sorted == l2_sorted:
+    print(f"lists {l1} and {l2} are same")
+else:
+    print(f"lists {l1} and {l2} are not same")
 ################################################################################################
 # ----------------------------------------------------------------------------------------------
 # Assignment Level Intermediate
@@ -140,6 +149,7 @@ lst = [n%3 for n in range(10)]
 list_with_unique_elements = list(set(lst))
 print(f"Original list \"{lst}\" after keeping only unique values: "
       f"\"{list_with_unique_elements}\"")
+
 ################################################################################################
 # A4: Write a Python program to check whether a list contains a sublist
 ################################################################################################
@@ -275,6 +285,8 @@ print(f"List of tuples '{list_of_tuples}' after removing empty tuples: "
 ################################################################################################
 # A2: Write a Python program to unzip a list of tuples into individual lists
 ################################################################################################
+list_of_tuples = [(1,2),(3,4),(5,6),(7,8)]
+print(f"After unzipping list of tuples {list_of_tuples} : {list(zip(*list_of_tuples))})
 
 ################################################################################################
 # A3: Write a Python program to convert a list of tuples into a dictionary
@@ -295,34 +307,72 @@ print(f"Converting list of tuples '{list_of_tuples}' into dictionary: {dictionar
 ################################################################################################
 # B1: What is Dictionaries?
 ################################################################################################
+# Answer: Dictionary is one of the python's data structures which is also knows as an
+#         associative array. Dictionary contains list of key-value pairs. Dictionary elements
+#         are accessed by keys. It's a mutable data type.
 
 ################################################################################################
-# B2: How will you create a dictionary in python?How will you get all the keys from the dictionary? How will you get all the values from the dictionary?
+# B2: How will you create a dictionary in python? How will you get all the keys from the
+#     dictionary? How will you get all the values from the dictionary?
 ################################################################################################
+# Creating the dictionary
+d = {}
+# or
+d = dict()
+# Getting keys from the dictionary d
+d.keys()
+# Getting values from the dictionary d
+d.values()
 
 ################################################################################################
 # B3: How will you create a dictionary using tuples in python?
 ################################################################################################
+list_of_tuples = [('Jan',1),('Feb',2),('Mar',3),('Apr',4),('May',5),('June',6)]
+d = dict(list_of_tuples)
 
 ################################################################################################
 # B4: Write a Python script to sort (ascending and descending) a dictionary by value
 ################################################################################################
+d = {'a':100, 'b':-40, 'c':-90, 'd':20}
+d_sorted_by_values = dict(sorted(d.items(), key=lambda x:x[1]))
+print(f"dictionary {d} after sorting by values: {d_sorted_by_values}")
 
 ################################################################################################
 # B5: Write a Python script to concatenate following dictionaries to create a new one
 ################################################################################################
+d1 = {'a': 100, 'b': 200, 'c':300}
+d2 = {'a': 300, 'b': 200, 'd':400}
+concatenated_dict = {**d1, **d2}
+print(concatenated_dict)
 
 ################################################################################################
 # B6: Write a Python script to check if a given key already exists in a dictionary
 ################################################################################################
+# Using membership operator
+d = {'a':1, 'b':2}
+key = 'a'
+if key in d:
+    print(f"key '{key}' is present in dictionary: {d}")
+else:
+    print(f"key '{key}' is not present in dictionary: {d}")
 
 ################################################################################################
 # B7: How Do You Traverse Through A Dictionary Object In Python?
 ################################################################################################
+dict = {'A':1, 'B':2, 'C':3, 'D':4}
+for key, value in dict.items():
+    print(f"dict['{key}'] = {value}")
 
 ################################################################################################
 # B8: How Do You Check The Presence Of A Key In A Dictionary?
 ################################################################################################
+# Using membership operator
+d = {'a':1, 'b':2}
+key = 'a'
+if key in d:
+    print(f"key '{key}' is present in dictionary: {d}")
+else:
+    print(f"key '{key}' is not present in dictionary: {d}")
 
 ################################################################################################
 # ----------------------------------------------------------------------------------------------
@@ -335,18 +385,39 @@ print(f"Converting list of tuples '{list_of_tuples}' into dictionary: {dictionar
 #     (both Sample Dictionary {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81,
 #     10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225}
 ################################################################################################
+d = {n:n**2 for n in range(1,16)}
+print(f"dictionary: {d}")
 
 ################################################################################################
 # I2: Write a Python program to check multiple keys exists in a dictionary
 ################################################################################################
+dict = {'A':1, 'B':2, 'C':3, 'D':4}
+keys = list(dict.keys())
+if len(keys) > 1:
+    print(f"Dictionary {dict} has multiple keys")
+else:
+    print(f"Dictionary {dict} doesn't have multiple keys")
 
 ################################################################################################
 # I3: Write a Python script to merge two Python dictionaries
 ################################################################################################
+d1 = {'a': 100, 'b': 200, 'c':300}
+d2 = {'a': 300, 'b': 200, 'd':400}
+merge_dict = {**d1, **d2}
+print(merge_dict)
 
 ################################################################################################
 # I4: Write a Python program to map two lists into a dictionary
 ################################################################################################
+list_of_char = ['a','b','c','d']
+list_of_num = [100,200,400,800]
+d = dict()
+d = dict(zip(list_of_char, list_of_num))
+print(d)
+# OR
+f = lambda x, y: (x, y)
+d = dict(map(f, list_of_char, list_of_num))
+map(ord, 'a')
 
 ################################################################################################
 # I5: Write a Python program to combine two dictionary adding values for common keys.
@@ -364,13 +435,20 @@ for key in d1.keys():
         d2_copy[key] = d2[key]
 
 print(d2_copy)
+
 ################################################################################################
 # I6: Write a Python program to print all unique values in a dictionary.
 ################################################################################################
+d = {'a':1, 'b':1, 'c':1, 'd':2, 'e':2}
+values = list(d.values())
+unique_values = list(set(values))
+print(f"Unique values in a dictionary {d} are: {unique_values}")
 
 ################################################################################################
 # I7: Why Do You Use The Zip() Method In Python?
 ################################################################################################
+# Answer: zip() method generates a series of tuples containing elements from each iterable,
+#         which can be used to generate dictionary
 
 ################################################################################################
 # ----------------------------------------------------------------------------------------------
@@ -384,10 +462,21 @@ print(d2_copy)
 #     Sample data : {'1':['a','b'], '2':['c','d']}
 #     Expected Output: ac ad bc bd
 ################################################################################################
+d = {'1':['a','b'], '2':['c','d']}
+print("Expected output:", end=' ')
+value_lists = list(d.values())
+for n1 in range(len(value_lists)-1):
+    for n2 in range(len(value_lists[n1])):
+        for n3 in range(len(value_lists[n1+1])):
+            print(value_lists[n1][n2] + value_lists[n1+1][n3], end=" ")
 
 ################################################################################################
 # A2: Write a Python program to find the highest 3 values in a dictionary
 ################################################################################################
+d = {'a':100, 'b':-40, 'c':-90, 'd':20}
+l = list(d.values())
+l.sort(reverse=True)
+print(f"Highest 3 values in a dictionary {d} are: {l[:3]}")
 
 ################################################################################################
 # A3: Write a Python program to combine values in python list of dictionaries.
@@ -395,6 +484,15 @@ print(d2_copy)
 #                   {'item': 'item1', 'amount': 750}]
 #     Expected Output: Counter({'item1': 1150, 'item2': 300})
 ################################################################################################
+d = [{'item': 'item1', 'amount': 400}, {'item': 'item2', 'amount': 300},
+     {'item': 'item1', 'amount': 750}]
+new_dict = dict()
+for e in d:
+    if e['item'] in new_dict:
+        new_dict[e['item']] += e['amount']
+    else:
+        new_dict[e['item']] = e['amount']
+print(f"Expected Output: {new_dict}")
 
 ################################################################################################
 # A4: Write a Python program to create a dictionary from a string. Note: Track the count of the
@@ -402,3 +500,8 @@ print(d2_copy)
 #     Sample string : 'w3resource'
 #     Expected output: {'3': 1, 's': 1, 'r': 2, 'u': 1, 'w': 1, 'c': 1, 'e': 2, 'o': 1}
 ################################################################################################
+str = 'w3resource'
+new_dict = {}
+for c in str:
+    new_dict[c] = str.count(c)
+print(f"Expected Output: {new_dict}")
