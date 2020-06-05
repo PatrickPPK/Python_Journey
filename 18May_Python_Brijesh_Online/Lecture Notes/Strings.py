@@ -70,8 +70,8 @@ You!
 >>> text
 'Put several strings within parentheses to have them joined together.'
 >>> multiline_str = "I'm learning Python. " \
-"This note explains string data tyTechBeamers.com tutorials. " \
-"It is the most popular site for Python programmers."
+"This note explains string data type. " \
+"Let me know if you find any errors in this note."
 print(multiline_str)
 
 # Indexing - Accessing single character in a string
