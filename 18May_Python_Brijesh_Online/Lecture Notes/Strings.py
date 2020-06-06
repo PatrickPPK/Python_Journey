@@ -111,7 +111,8 @@ TypeError: 'str' object does not support item assignment
 >>> s[:2] + s[2:]
 'Python'
 
-# Slice indices have useful defaults; an omitted first index defaults to zero, an omitted second index defaults to the size of the string being sliced
+# Slice indices have useful defaults; an omitted first index defaults to zero, an omitted second index defaults to the 
+#  size of the string being sliced
 >>> s[:2]   # character from the beginning to position 2 (excluded)
 'Py'
 >>> s[4:]   # characters from position 4 (included) to the end
@@ -132,7 +133,9 @@ TypeError: 'str' object does not support item assignment
 # ---------------------------------------------------
 # String Methods - Most frequently used methods only
 # ---------------------------------------------------
+# ---------------------------------------------------
 # Changing capitalization of a string
+# ---------------------------------------------------
 
 # (1) str.casefold - Return a casefolded copy of the string, used for caseless matching, not intended for display purposes
 >>> "XßΣ".casefold()
@@ -175,56 +178,21 @@ TypeError: 'str' object does not support item assignment
 # ---------------------------------------------------
 # Stripping unwanted leading/trailing characters from a string
 # ---------------------------------------------------
-# (1) str.strip()
-# center
-# count
-# encode
-# endswith
-# expandtabs
-# find
-# format
-# format_map
-# index
-# isalnum
-# isalpha
-# isascii
-# isdecimal
-# isdigit
-# isidentifier
-# islower
-# isnumeric
-# isprintable
-# isspace
-# istitle
-# isupper
-# 
-# 
-# 
-# 
-# 
 
+# (1) str.strip([chars]) - strips any leading or trailing characters contained in the argument chars; 
+#                          if chars is not supplied or is None, all white space characters are removed by default
+>>> " a line with leading and trailing space ".strip()
+'a line with leading and trailing space'
+>>> ">>> a Python prompt".strip('> ') # strips '>' character and space character
+'a Python prompt'
 
+# (2) str.lstrip([chars]) - strips any leading characters
+>>> "    spacious string    ".lstrip()
+'spacious string    '
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# (3) str.rstrip([chars]) - strips any trailing characters
+>>> "    spacious string    ".rstrip()
+'    spacious string'
 
 
 
