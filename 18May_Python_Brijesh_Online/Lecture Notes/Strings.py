@@ -293,4 +293,168 @@ TypeError: 'str' object does not support item assignment
 >>> "This is a sentence.".rsplit('e', maxsplit=2)
 ['This is a sent', 'nc', '.']
 
+# ---------------------------------------------------
+# Replace all occurrences of one substring with another substring
+# ---------------------------------------------------
+
+# (1) str.replace(old, new[, count]) - old sub-string which is to be replaced by the new substring
+>>> "Make sure to foo your sentence.".replace('foo', 'spam')
+"Make sure to spam your sentence."
+>>> "This is the island in Pacific Ocean".replace('is','was', 2)
+'Thwas was the island in Pacific Ocean'
+
+# ---------------------------------------------------
+# Testing what a string is composed of
+# ---------------------------------------------------
+
+# (1) str.isalpha() - returns True if the all characters in a given string are alphabetic
+>>> "Hello World".isalpha() # contains a space
+False
+>>> "HelloWorld".isalpha()
+True
+
+# (2) str.isupper() - returns True if all characters in a given string are uppercase
+>>> "HeLLO WORLD".isupper()
+False
+>>> "HELLO WORLD".isupper()
+True
+
+# (3) str.islower() - returns True if all characters in a given string are lowerrcase
+>>> "Hello world".islower()
+False
+>>> "hello world".islower()
+True
+
+# (4) str.istitle() - returns True if every word begins with an uppercase character followed by lowercase characters
+>>> "Hello world".istitle()
+False
+>>> "Hello World".istitle()
+True
+
+# (5) str.isdecimal() - returns whether the string is a sequence of decimal digits, suitable for representing a decimal number.
+# Can't find good example.
+
+# (6) str.isdigit() - includes digits not in a form suitable for representing a decimal number, such as superscript digits.
+# Can't find good example.
+
+# (7) str.isnumeric() - includes any number values, even if not digits, such as values outside the range 0-9.
+# Can't find good example.
+
+# (8) str.isalnum() - returns True if all characters in the given string are alphanumeric
+>>> "Hello2World".isalnum()
+True
+>>> "2016".isalnum()
+True
+>>> "Hello World".isalnum() # contains whitespace
+False
+
+# str.isspace - returns True if the string contains only whitespace characters.
+>>> "\t\r\n".isspace()
+True
+>>> " ".isspace()
+True
+>>> "".isspace()
+False
+
+# ---------------------------------------------------
+# String Contains - membership operator ('in', 'not in')
+# ---------------------------------------------------
+>>> "foo" in "foo.baz.bar"
+True
+>>> "a" not in "test"
+True
+
+# ---------------------------------------------------
+# Join a list of strings into one string
+# ---------------------------------------------------
+>>> " ".join(["once","upon","a","time"])
+"once upon a time"
+>>> "---".join(["once", "upon", "a", "time"])
+"once---upon---a---time"
+
+# ---------------------------------------------------
+# Counting number of times a substring appears in a string
+# ---------------------------------------------------
+
+# (1) str.count(sub[, start[, end]]) - counts the number of occurrences of a sub-string in another string
+>>> s = "She sells seashells by the seashore."
+>>> s.count("sh")
+2
+>>> s.count("sh", 10)
+2
+>>> s.count("sh", 10, 20)
+1
+>>> s.count("seashells")
+1
+
+# ---------------------------------------------------
+# Justify strings
+# ---------------------------------------------------
+
+# (1) str.ljust(width[, fill]) - returns a string consisting of str left-justified in a field of width
+#                                By default, padding consists of the ASCII space character, unless fill argument is specified
+>>> 'foo'.ljust(10)
+'foo       '
+>>> 'foo'.ljust(10, '-')
+'foo-------'
+
+# (2) str.rjust(width[, fill]) - returns a string consisting of str right-justified in a field of width
+#                                By default, padding consists of the ASCII space character, unless fill argument is specified
+>>> 'foo'.rjust(10)
+'       foo'
+>>> 'foo'.rjust(10, '-')
+'-------foo'
+
+# (3) str.center(width[, fill]) - returns a string consisting of str centered in a field of width. 
+#                             By default, padding consists of the ASCII space character
+>>> 'foo'.center(10)
+'   foo    '
+>>> 'bar'.center(10, '-')
+'---bar----'
+
+# (4) str.expandtabs(tabsize=8) - replaces each tab character ('\t') with spaces; By default eighth spaces
+>>> 'a\tb\tc'.expandtabs()
+'a       b       c'
+>>> 'aaa\tbbb\tc'.expandtabs()
+'aaa     bbb     c'
+>>> 'aaa\tbbb\tc'.expandtabs(tabsize=4)
+'aaa bbb c'
+
+# (5) str.zfill(width) - returns a copy of str left-padded with '0' characters to the specified width
+>>> '42'.zfill(5)
+'00042'
+>>> '+42'.zfill(8)
+'+0000042'
+>>> '-42'.zfill(8)
+'-0000042'
+
+# ---------------------------------------------------
+# Test the starting and ending characters of a string
+# ---------------------------------------------------
+
+# (1) str.startswith(prefix[, start[, end]]) - test whether a given string starts with the given characters in prefix
+>>> s = "This is a test string"
+>>> s.startswith("T")
+True
+>>> s.startswith("Thi")
+True
+>>> s.startswith("is", 2)
+True
+
+# (2) str.endswith(prefix[, start[, end]]) - test whether a given string ends with the given characters in prefix
+>>> s = "this ends in a full stop."
+>>> s.endswith('.')
+True
+>>> s.endswith('!')
+False
+# use a tuple to check if it ends with any of a set of strings
+>>> s.endswith(('.', 'something'))
+True
+
+
+
+
+
+
+
 
