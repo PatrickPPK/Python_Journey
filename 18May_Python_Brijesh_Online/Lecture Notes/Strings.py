@@ -194,7 +194,103 @@ TypeError: 'str' object does not support item assignment
 >>> "    spacious string    ".rstrip()
 '    spacious string'
 
+# ---------------------------------------------------
+# Replace each character in the string using the given translation table
+# ---------------------------------------------------
 
+# Make the translation table using the maketrans() method
+>>> translation_table = str.maketrans("aeiou", "12345")
+>>> my_string = "This is a string!"
+# The translate method returns a string which is a translated copy of the original string
+>>> translated = my_string.translate(translation_table)
+'Th3s 3s 1 str3ng!'
+# Set the table argument to None if you only need to delete characters.
+>>> 'this syntax is very useful'.translate(None, 'aeiou')
+'ths syntx s vry sfl'
 
+# ---------------------------------------------------
+# String (not 'str') module's useful constants
+# ---------------------------------------------------
+
+>>> import string
+# (1) string.ascii_letters - concatenation of ascii_lowercase and ascii_uppercase
+>>> string.ascii_letters
+'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+# (2) string.ascii_lowercase - contains all lower case ASCII characters
+>>> string.ascii_lowercase
+'abcdefghijklmnopqrstuvwxyz'
+
+# string.ascii_uppercase - contains all upper case ASCII characters
+>>> string.ascii_uppercase
+'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+# string.digits - contains all decimal digit characters
+>>> string.digits
+'0123456789'
+
+# string.hexdigits - contains all hex digit characters
+>>> string.hexdigits
+'0123456789abcdefABCDEF'
+
+# string.octaldigits - contains all octal digit characters
+>>> string.octaldigits
+'01234567'
+
+# string.punctuation - contains all characters which are considered punctuation in the C locale
+>>> string.punctuation
+'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
+# string.whitespace - contains all ASCII characters considered whitespace
+>>> string.whitespace
+' \t\n\r\x0b\x0c'
+
+# string.printable - contains all characters which are considered printable; a combination of string.digits, 
+#  string.ascii_letters, string.punctuation, and string.whitespace.
+>>> string.printable
+'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~\t\n\r\x0b\x0c'
+
+# ---------------------------------------------------
+# Reversing a string
+# ---------------------------------------------------
+
+# (1) reversed() function - takes a string and returns an iterator in reverse order.
+>>> [char for char in reversed('hello')]
+['o', 'l', 'l', 'e', 'h']
+>>> ''.join(reversed('hello'))
+'olleh'
+
+# Using extended slicing with a step of -1 is faster and more concise
+>>> 'hello'[::-1]
+'olleh'
+
+# ---------------------------------------------------
+# Split a string based on a delimiter into a list of strings
+# ---------------------------------------------------
+
+# (1) str.split(sep=None, maxsplit=-1) - takes a string and returns a list of substrings of the original string
+>>> "This is a sentence.".split()
+['This', 'is', 'a', 'sentence.']
+>>> " ".split()
+[]
+>>> "Earth,Stars,Sun,Moon".split(',')
+['Earth', 'Stars', 'Sun', 'Moon']
+>>> "This is a sentence.".split('en')
+['This is a s', 't', 'ce.']
+
+# maxsplit parameter limits the number of splittings that occur. The default value of -1 means no limit
+>>> "This is a sentence.".split('e', maxsplit=0)
+['This is a sentence.']
+>>> "This is a sentence.".split('e', maxsplit=2)
+['This is a s', 'nt', 'nce.']
+>>> "This is a sentence.".split('e', maxsplit=-1)
+['This is a s', 'nt', 'nc', '.']
+
+# (2) str.rsplit(sep=None, maxsplit=-1) - differs from str.split ("left split") when maxsplit is specified
+#                                         The splitting starts at the end of the string rather than at the beginning
+>>> "This is a sentence.".rsplit('e', maxsplit=1)
+['This is a sentenc', '.']
+>>> "This is a sentence.".rsplit('e', maxsplit=2)
+['This is a sent', 'nc', '.']
 
 
