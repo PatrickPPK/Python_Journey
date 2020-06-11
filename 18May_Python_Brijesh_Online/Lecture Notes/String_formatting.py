@@ -123,23 +123,81 @@ my_list = [0,1,2,3]
 >>> f'{my_number:.2%}'
 '25.12%'
 
->>> s = 'Hello'
->>> a, b, c = 1.12345, 2.34567, 34.5678
->>> digits = 2
->>> f'{s}! {a:.{digits}f}, {b:.{digits}f}, {c:.{digits}f}'
-'Hello! 1.12, 2.35, 34.567800'
-
-# Formatting numerical values
-					    
+# Formatting numerical values					    
 >>> f'{65:c}'
 'A'
 >>> f'{0x0a:d}'
 '10'
 >>> f'{0x0a:o}'	
 '12'
-                                            
-																						
+>>> f'{10:x}'
+'a'
+>>> f'{10:X}'
+'A'
+>>> f'{16:o}'	
+'20'
+>>> f'{16:b}'	
+'10000'
 					    
+# with prefixes
+>>> f'{65:#b}'
+'0b1000001'
+>>> f'{65:#o}'
+'0o101'
+>>> f'{65:#x}'
+'0x41'
+>>> f'{65:#X}'
+'0X41'				    
+																						
+# with prefixes - zero padding
+>>> f'{65:0=8b}'
+'01000001'
+>>> f'{65:0=4o}'
+'0101'
+>>> f'{65:0=4x}'
+'0041'					    
+					    
+# Nested formatting
+      
+>>> s = 'Hello'
+>>> a, b, c = 1.12345, 2.34567, 34.5678
+>>> digits = 2
+>>> f'{s}! {a:.{digits}f}, {b:.{digits}f}, {c:.{digits}f}'
+'Hello! 1.12, 2.35, 34.567800'
+					    
+>>> import decimal
+>>> width = 10
+>>> precision = 4
+>>> value = decimal.Decimal("12.34567")
+>>> f"result: {value:{width}.{precision}}"
+'result:      12.35'
+
+# Padding, truncating and combined
+"""
+---
+pad
+---
+{{:3}} :{a:3}:
+--------
+truncate
+--------
+{{:.3}} :{e:.3}:
+--------
+combined
+--------
+{{:>3.3}} :{a:>3.3}:
+{{:3.3}} :{a:3.3}:
+{{:3.3}} :{c:3.3}:
+{{:3.3}} :{e:3.3}:
+"""
+					    
+>>> f'{s:8}'
+'testsdf '
+>>> s = 'testsdf'
+>>> f'{s:.5}'
+'tests'
+>>> f'{s:8.5}'
+'tests   '
 					    
 					    
 					    
