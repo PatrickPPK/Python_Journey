@@ -16,9 +16,21 @@
 >>> print('{0}, {1}, {2}, and {3}'.format(foo, bar, baz))
 IndexError: tuple index out of range
   
-# Names arguments
+# Named arguments
 >>> print("X value is: {x_val}. Y value is: {y_val}.".format(x_val=2, y_val=3))
-X value is: 2. Y value is: 3.
+X value is: 2. Y value is: 3.		
+
+>>> my_dict = {'language':'Python','creator':'Guido van Rossum'}		    
+>>> "'{creator}' is the creator of '{language} programming language'.".format(**my_dict)
+"'Guido van Rossum' is the creator of 'Python programming language'."
+
+# str.format_map allows to use dictionaries without having to unpack them first 
+>>> "'{creator}' is the creator of '{language} programming language'.".format_map(my_dict)
+"'Guido van Rossum' is the creator of 'Python programming language'."
+
+# without a dictionary
+>>> '{first} {last}'.format(first='Hello',last='World')
+'Hello World'
     
 # Referencing object attributes
 >>> class car(object):
@@ -67,12 +79,58 @@ my_list = [0,1,2,3]
 >>> '{:^7s}'.format(foo)
 '  bar  '
 
-# Format literals (f-string)
+# Format literals (f-string) (python3.6 and upwards)
 
+>>> foo = 'world'
+>>> f'Hello {foo}'
+'Hello world'
 
+>>> f'{foo:~>9s}'
+'~~~~world'
 
+>>> f'{foo:-<9s}'
+'world----'
 
+>>> f'{foo:+^9s}'
+'++world++'
 
+>>> my_number = -123
+>>> f'{my_number:0=9d}'
+'-00000123'
 
+# float formatting
 
+>>> my_number = 42.12345
+>>> f'{my_number:.0f}'
+'42'
 
+>>> f'{my_number:.1f}'
+'42.1'
+
+>>> f'{my_number:.7f}'
+'42.1234500'
+
+>>> f'{-123.12345:.5e}'
+'-1.23123e+02'
+
+>>> my_number = .25123
+>>> my_number
+0.25123
+>>> f'{my_number:.2%}'
+'25.12%'
+
+>>> my_number = 0.25123
+>>> f'{my_number:.2%}'
+'25.12%'
+
+>>> s = 'Hello'
+>>> a, b, c = 1.12345, 2.34567, 34.5678
+>>> digits = 2
+>>> f'{s}! {a:.{digits}f}, {b:.{digits}f}, {c:.{digits}f}'
+'Hello! 1.12, 2.35, 34.567800'
+
+# Formatting numerical values
+					    
+					    
+					    
+					    
