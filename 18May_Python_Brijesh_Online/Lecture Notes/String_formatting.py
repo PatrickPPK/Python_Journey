@@ -30,3 +30,49 @@ X value is: 2. Y value is: 3.
 My car is: Red
   
 # Referecing dictionary keys
+>>> lang_dict = {'language': 'Python', 'creator':'Guido van Rossum'}
+>>> print("'{0[creator]}' is the creator of the '{0[language]}' programming langauge".format(lang_dict))
+'Guido van Rossum' is the creator of the 'Python' programming langauge
+
+# Referecing list and tuple indices
+my_list = [0,1,2,3]
+>>> print("'{0[1]}' is the 1st element of the list '{0}'".format(my_list))
+'1' is the 1st element of the list '[0, 1, 2, 3]'
+
+# Note: Module operator %-- string formatting or interpollation operator -- for formatting strings
+# str.format is a successor of % and it offers greater flexibilty. Hence, not including examples using % opearator
+
+# Alignment and padding
+# Format expression of the form
+#	{:[fill_char][align_operator][width]}
+# where, align_operator is one of:
+#	   > -- forces the field to be right-aligned within width
+#	   < -- forces the field to be left-aligned within width
+#	   ^ -- forces the field to be centered within width
+#	   = -- forces the padding to be placed after the sign (numeric types only)
+#	 fill_char (if omitted, default is whitespace) is the character used for the padding
+
+>>> '{:~<9s}, World'.format('Hello')
+'Hello~~~~, World'
+
+>>> '{:->9s}, World'.format('Hello')
+'----Hello, World'
+
+>>> '{:~^9s}'.format('Hello')
+'~~Hello~~'
+
+'{:0=6d}'.format(-123)
+# '-00123'
+
+>>> '{:^7s}'.format(foo)
+'  bar  '
+
+# Format literals (f-string)
+
+
+
+
+
+
+
+
