@@ -131,6 +131,15 @@ my_list = [0,1,2,3]
 
 # Formatting numerical values
 					    
+>>> f'{65:c}'
+'A'
+>>> f'{0x0a:d}'
+'10'
+>>> f'{0x0a:o}'	
+'12'
+                                            
+																						
+					    
 					    
 					    
 					    
