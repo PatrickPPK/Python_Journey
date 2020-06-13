@@ -234,7 +234,7 @@ TypeError: 'str' object does not support item assignment
 '0123456789abcdefABCDEF'
 
 # string.octaldigits - contains all octal digit characters
->>> string.octaldigits
+>>> string.octdigits
 '01234567'
 
 # string.punctuation - contains all characters which are considered punctuation in the C locale
