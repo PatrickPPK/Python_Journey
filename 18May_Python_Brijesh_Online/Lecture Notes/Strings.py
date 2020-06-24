@@ -75,6 +75,7 @@ You!
 "This note explains string data type. " \
 "Let me know if you find any errors in this note."
 print(multiline_str)
+I'm learning Python. This note explains string data type. Let me know if you find any errors in this note.
 
 # ---------------------------------------------------
 # Indexing - Accessing single character in a string
