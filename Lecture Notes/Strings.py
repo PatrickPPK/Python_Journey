@@ -267,6 +267,48 @@ TypeError: 'str' object does not support item assignment
 '    spacious string'
 
 # ---------------------------------------------------
+# Find a substring in a string
+# ---------------------------------------------------
+# (1) str.find(sub[, srart[, end]]) - searches the target string for a given substring, 
+#                                      return lowest index if specified substring is found
+#                                      return -1 if specified substring is not found
+>>> 'abc def ABC DEF 123 456'.find('abc')
+0
+>>> 'abc def ABC DEF 123 456'.find('ABC')
+8
+>>> 'abc def ABC DEF 123 456'.find('AbC')
+-1
+
+# (2) str.rfind(sub[, srart[, end]]) - searches the target string for a given substring starting at the end, 
+#                                      return highest index if specified substring is found
+#                                      return -1 if specified substring is not found
+>>> 'abc def abc DEF 123 456'.find('abc')
+8
+>>> 'ABC def ABC DEF ABC 456'.find('ABC')
+16
+>>> 'abc def ABC DEF 123 456'.find('AbC')
+-1
+
+# (3) str.index(sub[, srart[, end]]) - searches the target string for a given substring, 
+#                                      return lowest index if specified substring is found
+#                                      raises an ValueError exception if specified substring is not found
+>>> 'abc def ABC DEF 123 456'.find('abc')
+0
+>>> 'abc def ABC DEF 123 456'.find('ABC')
+8
+>>> 'abc def ABC DEF 123 456'.find('AbC')
+ValueError: substring not found
+
+# (2) str.rindex(sub[, srart[, end]]) - searches the target string for a given substring starting at the end, 
+#                                      return highest index if specified substring is found
+#                                      raises an ValueError exception if specified substring is not found
+>>> 'abc def abc DEF 123 456'.find('abc')
+8
+>>> 'ABC def ABC DEF ABC 456'.find('ABC')
+16
+>>> 'abc def ABC DEF 123 456'.find('AbC')
+ValueError: substring not found
+# ---------------------------------------------------
 # Replace each character in the string using the given translation table
 # ---------------------------------------------------
 
