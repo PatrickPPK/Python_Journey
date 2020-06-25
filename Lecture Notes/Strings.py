@@ -140,7 +140,7 @@ TypeError: 'str' object does not support item assignment
 >>> s[2:5]  # characters from position 2 (included) to 5 (excluded)
 'tho'
 
-# Note how the start is always included, and the end always excluded. This makes sure that s[:i] + s[i:] is always equal to s
+# Note: how the start is always included, and the end always excluded. This makes sure that s[:i] + s[i:] is always equal to s
 >>> s[:2] + s[2:]
 'Python'
 
@@ -376,43 +376,10 @@ TypeError: 'str' object does not support item assignment
 'Thwas was the island in Pacific Ocean'
 
 # ---------------------------------------------------
-# Testing what a string is composed of
+# Character classification - Testing what a string is composed of
 # ---------------------------------------------------
 
-# (1) str.isalpha() - returns True if the all characters in a given string are alphabetic
->>> "Hello World".isalpha() # contains a space
-False
->>> "HelloWorld".isalpha()
-True
-
-# (2) str.isupper() - returns True if all characters in a given string are uppercase
->>> "HeLLO WORLD".isupper()
-False
->>> "HELLO WORLD".isupper()
-True
-
-# (3) str.islower() - returns True if all characters in a given string are lowerrcase
->>> "Hello world".islower()
-False
->>> "hello world".islower()
-True
-
-# (4) str.istitle() - returns True if every word begins with an uppercase character followed by lowercase characters
->>> "Hello world".istitle()
-False
->>> "Hello World".istitle()
-True
-
-# (5) str.isdecimal() - returns whether the string is a sequence of decimal digits, suitable for representing a decimal number.
-# Can't find good example.
-
-# (6) str.isdigit() - includes digits not in a form suitable for representing a decimal number, such as superscript digits.
-# Can't find good example.
-
-# (7) str.isnumeric() - includes any number values, even if not digits, such as values outside the range 0-9.
-# Can't find good example.
-
-# (8) str.isalnum() - returns True if all characters in the given string are alphanumeric
+# (1) str.isalnum() - returns True if all characters in the given string are alphanumeric
 >>> "Hello2World".isalnum()
 True
 >>> "2016".isalnum()
@@ -420,13 +387,85 @@ True
 >>> "Hello World".isalnum() # contains whitespace
 False
 
-# str.isspace - returns True if the string contains only whitespace characters.
+# (2) str.isalpha() - returns True if the all characters in a given string are alphabetic
+>>> "Hello World".isalpha() # contains a space
+False
+>>> "HelloWorld".isalpha()
+True
+
+# (3) str.isascii() - returns True if the string is empty or it contains only ascii characters
+>>> "Ž".isascii()
+False
+>>> "Z".isascii()
+True
+>>> "ć".isascii()
+False
+>>> "".isascii()
+True
+
+# (4) str.isdecimal() - returns whether the string is a sequence of decimal digits, suitable for representing a decimal number.
+# Can't find good example.
+
+# (5) str.isdigit() - includes digits not in a form suitable for representing a decimal number, such as superscript digits.
+# Can't find good example.
+
+# (6) str.isidentifier() - returns True if the string is a valid Python identified
+>>> "name".isidentifier()
+True
+>>> "_name".isidentifier()
+True
+>>> "name1".isidentifier()
+True
+>>> "$name".isidentifier()
+False
+# Note: the method returns True for a string that matches a Python keyword
+>>> "and".isidentifier()
+True
+# Note: To ensure that a string would serve as a valid Python identifier, check that .isidentifier() is True and that iskeyword() is False.
+>>> from keyword import iskeyword
+>>> s = 'and'
+>>> s.isidentifier() is True and iskeyword(s) is False
+False
+>>> s = 'apple'
+>>> s.isidentifier() is True and iskeyword(s) is False
+True
+
+# (7) str.islower() - returns True if all characters in a given string are lowerrcase
+>>> "Hello world".islower()
+False
+>>> "hello world".islower()
+True
+
+# (8) str.isnumeric() - includes any number values, even if not digits, such as values outside the range 0-9.
+# Can't find good example.
+
+# (9) str.isprintable - returns True if the string is empty or it contains only printable characters.
+>>> "\t\r\n".isprintable()
+False
+>>> "a b".isprintable()
+True
+>>> "a\bb".isprintable()
+False
+
+# (10) str.isspace - returns True if the string contains only whitespace characters.
 >>> "\t\r\n".isspace()
 True
 >>> " ".isspace()
 True
 >>> "".isspace()
 False
+
+# (11) str.istitle() - returns True if every word begins with an uppercase character followed by lowercase characters
+>>> "Hello world".istitle()
+False
+>>> "Hello World".istitle()
+True
+
+# (12) str.isupper() - returns True if all characters in a given string are uppercase
+>>> "HeLLO WORLD".isupper()
+False
+>>> "HELLO WORLD".isupper()
+True
 
 # ---------------------------------------------------
 # String Contains - membership operator ('in', 'not in')
