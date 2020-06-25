@@ -157,7 +157,14 @@ TypeError: 'str' object does not support item assignment
 >>> s[4:42]
 'on'
 >>> s[42:]
-''
+
+# Specifying a stride in a string slice - Adding an additional : and a third index designates a stride (also called a step), 
+#  which indicates how many characters to jump after retrieving each character in the slice.
+>>> s = 'Python'
+>>> s[::2]
+'Pto'
+>>> s[1:5:2]
+'yh'
 
 # Python strings cannot be changed
 >>> s[0:2] = 'Jy'
