@@ -34,6 +34,9 @@
 # \v		- ASCII vertical tab
 # \ooo		- character with octal value ooo
 # \xhh		- character with hexadecimal value hh
+# \uxxxx	- Unicode character with 16-bit hex value xxxx
+# \xxxxxxxxx  - Unicode character with 32-bit hex value xxxx
+# \N{<name>}	- Character from Unicode database with given <name>
 
 >>> s = 'First line.\nSecond line.'  # \n means newline
 >>> s  # without print(), \n is included in the output
