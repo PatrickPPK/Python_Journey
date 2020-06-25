@@ -208,7 +208,6 @@ TypeError: 'str' object does not support item assignment
 # ---------------------------------------------------
 # Changing capitalization of a string
 # ---------------------------------------------------
-
 # (1) str.casefold - Return a casefolded copy of the string, used for caseless matching, not intended for display purposes
 >>> "XßΣ".casefold()
 'xssσ'
@@ -250,7 +249,6 @@ TypeError: 'str' object does not support item assignment
 # ---------------------------------------------------
 # Stripping unwanted leading/trailing characters from a string
 # ---------------------------------------------------
-
 # (1) str.strip([chars]) - strips any leading or trailing characters contained in the argument chars; 
 #                          if chars is not supplied or is None, all white space characters are removed by default
 >>> " a line with leading and trailing space ".strip()
@@ -308,10 +306,10 @@ ValueError: substring not found
 16
 >>> 'abc def ABC DEF 123 456'.find('AbC')
 ValueError: substring not found
+       
 # ---------------------------------------------------
 # Replace each character in the string using the given translation table
 # ---------------------------------------------------
-
 # Make the translation table using the maketrans() method
 >>> translation_table = str.maketrans("aeiou", "12345")
 >>> my_string = "This is a string!"
@@ -325,7 +323,6 @@ ValueError: substring not found
 # ---------------------------------------------------
 # String (not 'str') module's useful constants
 # ---------------------------------------------------
-
 >>> import string
 # (1) string.ascii_letters - concatenation of ascii_lowercase and ascii_uppercase
 >>> string.ascii_letters
@@ -367,7 +364,6 @@ ValueError: substring not found
 # ---------------------------------------------------
 # Reversing a string
 # ---------------------------------------------------
-
 # (1) reversed() function - takes a string and returns an iterator in reverse order.
 >>> [char for char in reversed('hello')]
 ['o', 'l', 'l', 'e', 'h']
@@ -381,7 +377,6 @@ ValueError: substring not found
 # ---------------------------------------------------
 # Split a string based on a delimiter into a list of strings
 # ---------------------------------------------------
-
 # (1) str.split(sep=None, maxsplit=-1) - takes a string and returns a list of substrings of the original string
 >>> "This is a sentence.".split()
 ['This', 'is', 'a', 'sentence.']
@@ -408,9 +403,27 @@ ValueError: substring not found
 ['This is a sent', 'nc', '.']
 
 # ---------------------------------------------------
+# Partition - divide a string based on a separator 
+# ---------------------------------------------------
+# (1) str.partition(sep) - splits a string at the first occurence of sep and returns tuple consisting of 
+#                           the portion of string before sep, sep and the portion of string after sep
+>>> s = 'hello there'
+>>> s.partition(' ')
+('hello', ' ', 'there')
+>>> s = 'hello hello hello there'
+# Note: If sep is not found in a string, the returned tuple contains string followed by two empty strings
+>>> s = 'hello world'
+>>> s.partition('.')
+('hello world', '', '')
+
+# (1) str.rpartition(sep) - splits a string at the last occurence of sep and returns tuple consisting of 
+>>> s = 'hello hello hello there'
+>>> s.rpartition(' ')
+('hello hello hello', ' ', 'there')
+
+# ---------------------------------------------------
 # Replace all occurrences of one substring with another substring
 # ---------------------------------------------------
-
 # (1) str.replace(old, new[, count]) - old sub-string which is to be replaced by the new substring
 >>> "Make sure to foo your sentence.".replace('foo', 'spam')
 "Make sure to spam your sentence."
@@ -420,7 +433,6 @@ ValueError: substring not found
 # ---------------------------------------------------
 # Character classification - Testing what a string is composed of
 # ---------------------------------------------------
-
 # (1) str.isalnum() - returns True if all characters in the given string are alphanumeric
 >>> "Hello2World".isalnum()
 True
@@ -528,7 +540,6 @@ True
 # ---------------------------------------------------
 # Counting number of times a substring appears in a string
 # ---------------------------------------------------
-
 # (1) str.count(sub[, start[, end]]) - counts the number of occurrences of a sub-string in another string
 >>> s = "She sells seashells by the seashore."
 >>> s.count("sh")
@@ -543,7 +554,6 @@ True
 # ---------------------------------------------------
 # Justify strings
 # ---------------------------------------------------
-
 # (1) str.ljust(width[, fill]) - returns a string consisting of str left-justified in a field of width
 #                                By default, padding consists of the ASCII space character, unless fill argument is specified
 >>> 'foo'.ljust(10)
@@ -584,7 +594,6 @@ True
 # ---------------------------------------------------
 # Test the starting and ending characters of a string
 # ---------------------------------------------------
-
 # (1) str.startswith(prefix[, start[, end]]) - test whether a given string starts with the given characters in prefix
 >>> s = "This is a test string"
 >>> s.startswith("T")
