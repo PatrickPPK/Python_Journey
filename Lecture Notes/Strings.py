@@ -102,6 +102,36 @@ IndexError: string index out of range
 # Python strings cannot be changed
 >>> s[0] = 'J'
 TypeError: 'str' object does not support item assignment
+       
+# ---------------------------------------------------
+# String operators
+# (1) '+' operator - concatenates strings
+>>> s = 'abc'
+>>> t = '123
+>>> u = '!@#'
+
+>>> s + '-' + t
+'abc-123'
+>>> s + '-' + t + '-' + u
+'abc-123-!@#'
+
+>>> print('Hello' + 'World!')
+HelloWorld!
+
+# (2) '*' operator - creates multiple copies of the strings
+>>> s = 'bla'
+>>> s * 3
+'blablabla'
+>>> s * -1
+''
+
+# (3) 'in' operator - membership operator - returns True if first operand is contained within the second
+>>> "foo" in "foo.baz.bar"
+True
+
+# (4) 'not in' operator - membership operator - returns True if first operand is not contained within the second
+>>> "a" not in "test"
+True
 
 # ---------------------------------------------------
 # Slicing - To access a range of characters(to obtain substring) in a String
@@ -132,6 +162,38 @@ TypeError: 'str' object does not support item assignment
 # Python strings cannot be changed
 >>> s[0:2] = 'Jy'
 TypeError: 'str' object does not support item assignment
+       
+# ---------------------------------------------------
+# Built-in String Functions
+# ---------------------------------------------------
+# (1) chr() - Returns a character value for the given integer
+>>> chr(65)
+'A'
+>>> chr(49)
+'1'
+>>> chr(10)
+'\n'
+
+# (2) ord() - Return an integer value for the given character
+>>> ord('a')
+97
+>>> ord('0')
+48
+>>> ord('+')
+43
+
+# (3) len() - Return the length of a string
+>>> s = 'Python is a programming language'
+>>> len(s)
+32
+
+# (4) str() - Return a string representation of an object
+>>> str(1+3j)
+'(1+3j)'
+>>> str(10.5)
+'10.5'
+>>> str(10 * 5)
+'50'
 
 # ---------------------------------------------------
 # String Methods - Most frequently used methods only
