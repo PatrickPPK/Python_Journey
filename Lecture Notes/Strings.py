@@ -80,30 +80,6 @@ You!
 print(multiline_str)
 
 # ---------------------------------------------------
-# Indexing - Accessing single character in a string
-# +---+---+---+---+---+---+
-#  | P | y | t | h | o | n |
-# +---+---+---+---+---+---+
-#  0   1   2   3   4   5   6
-# -6  -5  -4  -3  -2  -1
-
->>> s = 'Python'
->>> s[0]
-'P'
->>> s[5]
-'n'
->>> s[-1]
-'n'
->>> s[-3]
-'h'
-# Attempting to use an index that is too large will result in an error
->>> s[10]  # the word only has 6 characters
-IndexError: string index out of range
-# Python strings cannot be changed
->>> s[0] = 'J'
-TypeError: 'str' object does not support item assignment
-       
-# ---------------------------------------------------
 # String operators
 # (1) '+' operator - concatenates strings
 >>> s = 'abc'
@@ -132,6 +108,30 @@ True
 # (4) 'not in' operator - membership operator - returns True if first operand is not contained within the second
 >>> "a" not in "test"
 True
+
+# ---------------------------------------------------
+# Indexing - Accessing single character in a string
+# +---+---+---+---+---+---+
+#  | P | y | t | h | o | n |
+# +---+---+---+---+---+---+
+#  0   1   2   3   4   5   6
+# -6  -5  -4  -3  -2  -1
+
+>>> s = 'Python'
+>>> s[0]
+'P'
+>>> s[5]
+'n'
+>>> s[-1]
+'n'
+>>> s[-3]
+'h'
+# Attempting to use an index that is too large will result in an error
+>>> s[10]  # the word only has 6 characters
+IndexError: string index out of range
+# Python strings cannot be changed
+>>> s[0] = 'J'
+TypeError: 'str' object does not support item assignment       
 
 # ---------------------------------------------------
 # Slicing - To access a range of characters(to obtain substring) in a String
