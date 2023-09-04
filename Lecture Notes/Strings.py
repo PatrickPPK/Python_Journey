@@ -265,46 +265,72 @@ TypeError: 'str' object does not support item assignment
 '    spacious string'
 
 # ---------------------------------------------------
+# Removing prefix and suffix substring from the original string
+# ---------------------------------------------------
+# (1) str.removeprefix(substring) - Returns a new string with trimmed prefix substring if found
+#                                 otherwise returns the original string
+>>> "blablabla...original string".removeprefix('blablabla')
+'...original string'
+
+# (1) str.removesuffix(substring) - Returns a new string with trimmed suffix substring if found
+#                                 otherwise returns the original string
+>>> "original string...blablabla".removeprefix('blablabla')
+'original string...'
+
+# ---------------------------------------------------
 # Find a substring in a string
 # ---------------------------------------------------
-# (1) str.find(sub[, srart[, end]]) - searches the target string for a given substring, 
+# (1) str.find(sub[, start[, end]]) - searches the target string for a given substring, 
 #                                      return lowest index if specified substring is found
 #                                      return -1 if specified substring is not found
->>> 'abc def ABC DEF 123 456'.find('abc')
-0
->>> 'abc def ABC DEF 123 456'.find('ABC')
-8
->>> 'abc def ABC DEF 123 456'.find('AbC')
--1
+>>> statement = 'I love Python. You love Python. We love Python. But Pythons do not love Python!'
+# Substring is searched in 'hings with great love'
+>>> print(statement.find('Python'))
+7
+>>> print(statement.find('Python', 10))
+24
+>>> print(statement.find('Python', 30, 50))
+40
 
-# (2) str.rfind(sub[, srart[, end]]) - searches the target string for a given substring starting at the end, 
+# (2) str.rfind(sub[, start[, end]]) - searches the target string for a given substring starting at the end, 
 #                                      return highest index if specified substring is found
 #                                      return -1 if specified substring is not found
->>> 'abc def abc DEF 123 456'.find('abc')
-8
->>> 'ABC def ABC DEF ABC 456'.find('ABC')
-16
->>> 'abc def ABC DEF 123 456'.find('AbC')
--1
+>>> statement = 'I love Python. You love Python. We love Python. But Pythons do not love Python!'
+>>> print(statement.rfind('Python'))
+7
+>>> print(statement.rfind('Python', 10))
+24
+>>> print(statement.rfind('Python', 30, 50))
+40
 
-# (3) str.index(sub[, srart[, end]]) - searches the target string for a given substring, 
+# (3) str.index(sub[, start[, end]]) - searches the target string for a given substring, 
 #                                      return lowest index if specified substring is found
 #                                      raises an ValueError exception if specified substring is not found
->>> 'abc def ABC DEF 123 456'.find('abc')
-0
->>> 'abc def ABC DEF 123 456'.find('ABC')
-8
->>> 'abc def ABC DEF 123 456'.find('AbC')
+>>> genre = 'Mooooosic'
+>>> genre.index('o')
+1
+>>> genre.index('o', 3)
+3
+>>> genre.index('o', 4, 6)
+4
+>>> genre.index('p', 4, 6)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
 ValueError: substring not found
 
-# (2) str.rindex(sub[, srart[, end]]) - searches the target string for a given substring starting at the end, 
+# (2) str.rindex(sub[, start[, end]]) - searches the target string for a given substring starting at the end, 
 #                                      return highest index if specified substring is found
 #                                      raises an ValueError exception if specified substring is not found
->>> 'abc def abc DEF 123 456'.find('abc')
-8
->>> 'ABC def ABC DEF ABC 456'.find('ABC')
-16
->>> 'abc def ABC DEF 123 456'.find('AbC')
+>>> genre = 'Mooooosic'
+>>> genre.rindex('o')
+5
+>>> genre.rindex('o', 3)
+5
+>>> genre.rindex('o', 1, 4)
+3
+>>> genre.rindex('p', 4, 6)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
 ValueError: substring not found
        
 # ---------------------------------------------------
