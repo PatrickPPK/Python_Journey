@@ -428,6 +428,30 @@ ValueError: substring not found
 >>> "This is a sentence.".rsplit('e', maxsplit=2)
 ['This is a sent', 'nc', '.']
 
+# (3) str.splitlines(keepends=False) - Return a list of the lines in the string, breaking at line boundaries. 
+#                                      Line breaks are not included in the resulting list unless keepends is given and true.
+
+# This method splits on the following line boundaries. In particular, the boundaries are a superset of universal newlines.
+
+# Representation       -           Description
+# \n                   -           Line Feed
+# \r                   -           Carriage Return
+# \r\n                 -           Carriage Return + Line Feed
+# \v or \x0b           -           Line Tabulation
+# \f or \x0c           -           Form Feed
+# \x1c                 -           File Separator
+# \x1d                 -           Group Separator
+# \x1e                 -           Record Separator
+# \x85                 -           Next Line (C1 Control Code)
+# \u2028               -           Line Separator
+# \u2029               -           Paragraph Separator
+
+>>>
+'ab c\n\nde fg\rkl\r\n'.splitlines()
+['ab c', '', 'de fg', 'kl']
+'ab c\n\nde fg\rkl\r\n'.splitlines(keepends=True)
+['ab c\n', '\n', 'de fg\r', 'kl\r\n']
+
 # ---------------------------------------------------
 # Partition - divide a string based on a separator 
 # ---------------------------------------------------
